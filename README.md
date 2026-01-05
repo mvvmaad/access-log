@@ -1,1 +1,256 @@
-# access-log
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Secure Access</title>
+
+<style>
+body{
+    margin:0;
+    background:black;
+    color:#00ff00;
+    font-family:monospace;
+    overflow:hidden;
+}
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-2;
+}
+#code{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    font-size:12px;
+    opacity:.25;
+    white-space:pre;
+    z-index:-1;
+}
+.container{padding:20px}
+.box{
+    border:1px solid #00ff00;
+    padding:15px;
+    margin-bottom:20px;
+    box-shadow:0 0 10px #00ff00;
+}
+iframe{
+    width:100%;
+    height:250px;
+    border:1px solid #00ff00;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+<pre id="code"></pre>
+
+<div class="container">
+
+<pre>
+>>> SYSTEM ACCESS GRANTED
+>>> TRACKING DATA...
+>>> DATA FOUND ✔
+</pre>
+
+<div class="box">
+01040278389 << id
+<br>---
+<br>Time >> 6:32 PM
+<br>---
+<br>الاحد  Day >> Sunday
+<br>---
+<br>Location >> Menouf, Menoufia, in front of Menouf General Hospital  
+<br>منوف، المنوفية امام مستشفى منوف العام
+
+<iframe src="https://maps.google.com/maps?q=30.4646,30.9335&z=16&output=embed"></iframe>
+</div>
+
+<div class="box">
+01040278389 << id
+<br>---
+<br>Time >> 3:11 PM
+<br>---
+<br>الاحد  Day >> Sunday
+<br>---
+<br>Location >> Menouf, Menoufia, El Geish Street  
+<br>منوف، المنوفية شارع الجيش
+
+<iframe src="https://maps.google.com/maps?q=30.4665,30.9352&z=16&output=embed"></iframe>
+</div>
+
+</div>
+
+<script>
+// MATRIX
+const c=document.getElementById("matrix");
+const ctx=c.getContext("2d");
+c.width=innerWidth;
+c.height=innerHeight;
+const letters="01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const font=16;
+const cols=c.width/font;
+const drops=Array(Math.floor(cols)).fill(1);
+
+setInterval(()=>{
+ctx.fillStyle="rgba(0,0,0,0.05)";
+ctx.fillRect(0,0,c.width,c.height);
+ctx.fillStyle="#0f0";
+ctx.font=font+"px monospace";
+drops.forEach((y,i)=>{
+ctx.fillText(letters[Math.random()*letters.length|0],i*font,y*font);
+if(y*font>c.height&&Math.random()>0.98)drops[i]=0;
+drops[i]++;
+});
+},33);
+
+// FAKE PYTHON
+const py=`import socket
+import time
+
+def track():
+    print("Connecting...")
+    time.sleep(1)
+    print("Fetching Location...")
+    time.sleep(1)
+    print("Done")
+
+track()
+`;
+setInterval(()=>document.getElementById("code").textContent+=py,400);
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Secure Access</title>
+
+<style>
+body{
+    margin:0;
+    background:black;
+    color:#00ff00;
+    font-family:monospace;
+    overflow:hidden;
+}
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-2;
+}
+#code{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    font-size:12px;
+    opacity:.25;
+    white-space:pre;
+    z-index:-1;
+}
+.container{padding:20px}
+.box{
+    border:1px solid #00ff00;
+    padding:15px;
+    margin-bottom:20px;
+    box-shadow:0 0 10px #00ff00;
+}
+iframe{
+    width:100%;
+    height:250px;
+    border:1px solid #00ff00;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+<pre id="code"></pre>
+
+<div class="container">
+
+<pre>
+>>> SYSTEM ACCESS GRANTED
+>>> TRACKING DATA...
+>>> DATA FOUND ✔
+</pre>
+
+<div class="box">
+01040278389 << id
+<br>---
+<br>Time >> 6:32 PM
+<br>---
+<br>الاحد  Day >> Sunday
+<br>---
+<br>Location >> Menouf, Menoufia, in front of Menouf General Hospital  
+<br>منوف، المنوفية امام مستشفى منوف العام
+
+<iframe src="https://maps.google.com/maps?q=30.4646,30.9335&z=16&output=embed"></iframe>
+</div>
+
+<div class="box">
+01040278389 << id
+<br>---
+<br>Time >> 3:11 PM
+<br>---
+<br>الاحد  Day >> Sunday
+<br>---
+<br>Location >> Menouf, Menoufia, El Geish Street  
+<br>منوف، المنوفية شارع الجيش
+
+<iframe src="https://maps.google.com/maps?q=30.4665,30.9352&z=16&output=embed"></iframe>
+</div>
+
+</div>
+
+<script>
+// MATRIX
+const c=document.getElementById("matrix");
+const ctx=c.getContext("2d");
+c.width=innerWidth;
+c.height=innerHeight;
+const letters="01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const font=16;
+const cols=c.width/font;
+const drops=Array(Math.floor(cols)).fill(1);
+
+setInterval(()=>{
+ctx.fillStyle="rgba(0,0,0,0.05)";
+ctx.fillRect(0,0,c.width,c.height);
+ctx.fillStyle="#0f0";
+ctx.font=font+"px monospace";
+drops.forEach((y,i)=>{
+ctx.fillText(letters[Math.random()*letters.length|0],i*font,y*font);
+if(y*font>c.height&&Math.random()>0.98)drops[i]=0;
+drops[i]++;
+});
+},33);
+
+// FAKE PYTHON
+const py=`import socket
+import time
+
+def track():
+    print("Connecting...")
+    time.sleep(1)
+    print("Fetching Location...")
+    time.sleep(1)
+    print("Done")
+
+track()
+`;
+setInterval(()=>document.getElementById("code").textContent+=py,400);
+</script>
+
+</body>
+</html>
